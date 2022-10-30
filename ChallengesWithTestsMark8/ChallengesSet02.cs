@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ChallengesWithTestsMark8
 {
@@ -7,52 +8,147 @@ namespace ChallengesWithTestsMark8
     {
         public bool CharacterIsALetter(char c)
         {
-            throw new NotImplementedException();
+            bool retval = true;
+            if (c < 65 ) retval = false;
+            if (c > 90 && c < 97) retval = false;
+            if (c > 122 ) retval = false;
+            return retval;
         }
 
         public bool CountOfElementsIsEven(string[] vals)
         {
-            throw new NotImplementedException();
+            if (vals.Length % 2 == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool IsNumberEven(int number)
         {
-            throw new NotImplementedException();
+            if (number % 2 == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
 
         public bool IsNumberOdd(int num)
         {
-            throw new NotImplementedException();
+            return !IsNumberEven(num);
         }
 
         public double SumOfMinAndMax(IEnumerable<double> numbers)
         {
-            throw new NotImplementedException();
+            if (numbers == null)
+                return 0;
+
+            double min = double.MaxValue;
+            for (int i = 0; i < numbers.Count(); i++) 
+            {
+                double val = numbers.ElementAt(i);
+                if (val <min)
+                    min = val;
+            }
+
+            double max = double.MinValue;
+            foreach (double val in numbers) 
+            {
+                if (val > max)
+                    max = val;
+            }
+
+            return min + max;
         }
 
         public int GetLengthOfShortestString(string str1, string str2)
         {
-            throw new NotImplementedException();
+            if (str1.Length < str2.Length)
+            {
+                return str1.Length;
+            }
+            else
+            {
+                return str2.Length;
+            }
         }
 
         public int Sum(int[] numbers)
         {
-            throw new NotImplementedException();
+            if (numbers == null)
+                return 0;
+
+            int retval = 0;
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                int number = numbers[i];
+                retval = retval + number;
+            }
+            return retval;
         }
 
         public int SumEvens(int[] numbers)
         {
-            throw new NotImplementedException();
+            if (numbers == null)
+                return 0;
+
+            int retval = 0;
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                int number = numbers[i];
+                if (number % 2 == 0)
+                {
+
+                    retval = retval + number;
+                }
+            }
+            return retval;
+
         }
 
         public bool IsSumOdd(List<int> numbers)
         {
-            throw new NotImplementedException();
+            if (numbers == null)
+                return false;
+
+            int sum = 0;
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                sum = sum + numbers[i];
+            }
+
+            if (sum % 2 == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         public long CountOfPositiveOddsBelowNumber(long number)
         {
-            throw new NotImplementedException();
+            long count = 0;
+            for (int i = 0; i < number; i++)
+            {
+                if (i % 2 == 0)
+                {
+
+                }
+                else
+                {
+                    count++;
+                }
+            }
+            return count;
         }
     }
 }
